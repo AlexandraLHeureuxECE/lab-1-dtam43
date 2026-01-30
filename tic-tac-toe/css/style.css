@@ -1,0 +1,119 @@
+/* ===== LIGHT MODE ===== */
+:root {
+  --bg-color: #ffffff;        /* white background */
+  --text-color: #003300;      /* dark green text */
+  --board-bg: #f0f0f0;        /* light grey board background */
+  --cell-bg: #ffffff;         
+  --cell-hover: #dddddd;      
+  --border-color: #003300;    
+  --button-bg: #eeeeee;       
+  --button-text: #003300;     
+  --highlight-color: #ff9900; /* orange highlight still works */
+  --font-family: 'Press Start 2P', monospace;
+}
+
+/* ===== DARK MODE ===== */
+body.dark {
+  --bg-color: #0a0a0a;        /* black background */
+  --text-color: #00ff00;      /* green text */
+  --board-bg: #0a0a0a;        
+  --cell-bg: #003300;         
+  --cell-hover: #005500;      
+  --border-color: #00ff00;    
+  --button-bg: #003300;       
+  --button-text: #ff9900;     
+  --highlight-color: #ff9900; 
+}
+
+/* ===== BASE RESET ===== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-shadow: 0 0 2px #00ff00; /* subtle glow */
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 500px;
+  margin: 40px auto;
+  text-align: center;
+}
+
+/* ===== HEADINGS ===== */
+h1 {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  text-shadow: 0 0 3px #00ff00;
+}
+
+/* ===== STATUS TEXT ===== */
+#status {
+  margin: 15px 0;
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: var(--text-color);
+  text-shadow: 0 0 4px #00ff00;
+}
+
+/* ===== BUTTONS ===== */
+button {
+  padding: 10px 16px;
+  font-size: 0.7rem;
+  cursor: pointer;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: 2px solid var(--border-color);
+  border-radius: 0;
+  text-shadow: 0 0 2px #ff9900;
+  transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+button:hover {
+  background-color: var(--cell-hover);
+  color: var(--highlight-color);
+}
+
+/* ===== BOARD ===== */
+#board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin: 20px 0;
+  background-color: var(--board-bg);
+  padding: 10px;
+  border: 4px solid var(--border-color);
+}
+
+/* ===== CELLS ===== */
+.cell {
+  aspect-ratio: 1 / 1;
+  border: 2px solid var(--border-color);
+  background-color: var(--cell-bg);
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text-color);
+  text-shadow: 0 0 2px #00ff00;
+  transition: background-color 0.1s ease, border-color 0.1s ease;
+}
+
+.cell:hover {
+  background-color: var(--cell-hover);
+}
+
+/* ===== KEYBOARD SELECTION ===== */
+.cell.selected {
+  outline: 3px solid var(--highlight-color);
+  outline-offset: -3px;
+}
